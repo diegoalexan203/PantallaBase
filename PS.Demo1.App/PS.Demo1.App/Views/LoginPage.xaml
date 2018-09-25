@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="PS.Demo1.App.Views.LoginPage"   
+             NavigationPage.HasNavigationBar="false">
+
+    <Grid x:Name="LayoutRoot" BackgroundColor="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <ActivityIndicator IsRunning="{Binding IsRunningIndicator}" Grid.RowSpan="3" Color="Blue" VerticalOptions="Center" HorizontalOptions="Center"/>
+        <StackLayout Grid.Row="1" Orientation="Vertical" Margin="0,40,0,10">
+            <StackLayout Orientation="Vertical" VerticalOptions="Center" Margin="0,5,0,0" BackgroundColor="White" Opacity="0.8">
+                <Image  Aspect="AspectFit" Margin="10" HeightRequest="200" WidthRequest="200"  VerticalOptions="Center" HorizontalOptions="Center">
+                    <Image.Source>
+                        <OnPlatform x:TypeArguments="ImageSource">
+                            <OnPlatform.iOS>
+                                <FileImageSource File="logo.jpg"/>
+                            </OnPlatform.iOS>
+                            <OnPlatform.Android>
+                                <FileImageSource File="logo.jpg"/>
+                            </OnPlatform.Android>
+                        </OnPlatform>
+                    </Image.Source>
+                </Image>
+            </StackLayout>
+        </StackLayout>
+        <StackLayout Grid.Row="2" Orientation="Vertical" BackgroundColor="White" Opacity="0.8">
+            <StackLayout Orientation="Vertical" Margin="40,20">
+                <Entry Text="{Binding User.Email, Mode=TwoWay}" x:Name="EmailEntry" TextColor="Gray" Placeholder="Email" PlaceholderColor="Gray" Keyboard="Email" FontSize="18" HorizontalTextAlignment="Start"/>
+                <Entry Text="{Binding User.Password, Mode=TwoWay}" x:Name="PasswordEntry" TextColor="Gray" Placeholder="Password" PlaceholderColor="Gray" IsPassword="True" FontSize="18" HorizontalTextAlignment="Start"/>
+                <Button Margin="0,10" Text="Login" BackgroundColor="#0072BD" TextColor="White" FontSize="18" Command="{Binding LoginCommand}"/>
+                <Label Text="Los Campos son obligatorios" TextColor="#0072BD" IsVisible="{Binding IsVisibleLabel}"/>
+                <ActivityIndicator IsRunning="{Binding IsRunningIndicator}" Color="Blue" VerticalOptions="Center" HorizontalOptions="Center"/>
+            </StackLayout>
+        </StackLayout>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,2 @@
+"D:\OpenCover\opencover.console" -register:user -output:coverage.xml -target:"dotnet.exe" -targetargs:"D:\Nugets\xunit.runner.console\2.3.1\tools\netcoreapp2.0\xunit.console.dll PS.Demo1.XUnitTest\bin\%1\netcoreapp2.0\PS.Demo1.XUnitTest.dll" -oldstyle -filter:"+[*]* -[*.Tests]* -[packages]* -[*.XUnitTest]* -[xunit.*]* -[Moq]* -[PS.Demo1.App]PS.Demo1.App.App -[PS.Demo1.App]PS.Demo1.App.Views.*
+"D:\ReportGenerator\ReportGenerator.exe" "-reports:coverage.xml" "-targetdir:.\coverage"
