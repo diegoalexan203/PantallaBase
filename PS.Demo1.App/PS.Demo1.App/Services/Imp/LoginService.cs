@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading;
 
-namespace PS.Demo1.App.Services
+namespace PS.Demo1.App.Services.Imp
 {
-    public class LoginService
+    public class LoginService: ILoginService
     {
         public bool DoLoginService(UserModel user)
         {

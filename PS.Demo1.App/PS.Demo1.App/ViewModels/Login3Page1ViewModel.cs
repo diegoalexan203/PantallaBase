@@ -1,19 +1,18 @@
 ﻿using Prism.Commands;
+using Prism.Mvvm;
 using Prism.Navigation;
 using Prism.Services;
 using PS.Demo1.App.Model;
 using PS.Demo1.App.Services;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace PS.Demo1.App.ViewModels
 {
-    public class LoginPageViewModel : ViewModelBase
-    {
-        /// <summary>
-        /// Contructor
-        /// </summary>
-        /// <param name="navigationService"></param>
-        public LoginPageViewModel(INavigationService navigationService, IPageDialogService dialogService, ILoginService loginService)
+	public class Login3Page1ViewModel : ViewModelBase
+	{
+        public Login3Page1ViewModel(INavigationService navigationService, IPageDialogService dialogService, ILoginService loginService)
             : base(navigationService)
         {
             LoginCommand = new DelegateCommand(DoLogin);

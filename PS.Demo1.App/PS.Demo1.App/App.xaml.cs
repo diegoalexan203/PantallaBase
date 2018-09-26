@@ -4,6 +4,8 @@ using Microsoft.Practices.Unity;
 using Prism.Unity;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using PS.Demo1.App.Services;
+using PS.Demo1.App.Services.Imp;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace PS.Demo1.App
@@ -23,7 +25,8 @@ namespace PS.Demo1.App
         {
             InitializeComponent();
 
-            await NavigationService.NavigateAsync("NavigationPage/LoginPage");
+            //await NavigationService.NavigateAsync("NavigationPage/LoginPage");
+            await NavigationService.NavigateAsync("NavigationPage/Login3");
         }
 
         protected override void RegisterTypes()
@@ -32,6 +35,9 @@ namespace PS.Demo1.App
 
             Container.RegisterTypeForNavigation<LoginPage>();
             Container.RegisterTypeForNavigation<IndexContentPage>();
+            Container.RegisterType<ILoginService, LoginService>();
+            Container.RegisterTypeForNavigation<Login2Page>("Login2");
+            Container.RegisterTypeForNavigation<Login3Page1>("Login3");
         }
     }
 }
